@@ -1,5 +1,5 @@
-import 'package:contact/presentation/app/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'presentation/app/main_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomePage(),
+      home: MainScreen(),
     );
   }
 }

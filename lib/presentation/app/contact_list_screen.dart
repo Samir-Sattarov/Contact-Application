@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:getwidget/components/avatar/gf_avatar.dart';
+import 'package:getwidget/getwidget.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class ContactList extends StatefulWidget {
+  const ContactList({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _ContactListState createState() => _ContactListState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _ContactListState extends State<ContactList> {
   // This holds a list of fiction users
   // You can use data fetched from a database or a server as well
   final List<Map<String, dynamic>> _allUsers = [
@@ -80,17 +80,16 @@ class _HomePageState extends State<HomePage> {
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
-                      color: active == true ? Colors.green : Colors.black,
                       border: Border.all(
-                        width: active == true ? 0.00001 : 2,
+                        width: 2,
                         color: Colors.grey,
                       ),
                       borderRadius: BorderRadius.circular(100),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.call,
-                      color: active == false ? Colors.grey : Colors.black,
                       size: 20,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
@@ -102,16 +101,17 @@ class _HomePageState extends State<HomePage> {
                     width: 100,
                     height: 100,
                     decoration: BoxDecoration(
+                      color: Colors.green,
                       border: Border.all(
-                        width: 2,
+                        width: 0.00001,
                         color: Colors.grey,
                       ),
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: const Icon(
                       Icons.person,
+                      color: Colors.black,
                       size: 20,
-                      color: Colors.grey,
                     ),
                   ),
                 ),
@@ -153,12 +153,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.only(left: 10, top: 10),
               child: Row(
                 children: const [
-                  Text(
-                    'Все вызовы',
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
-                  ),
+                  Text('Все вызовы'),
                 ],
               ),
             ),
@@ -176,20 +171,6 @@ class _HomePageState extends State<HomePage> {
                         elevation: 0,
                         margin: const EdgeInsets.symmetric(vertical: 10),
                         child: ListTile(
-                          trailing: IconButton(
-                            splashRadius: 0.00001,
-                            icon: Container(
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(80, 170, 170, 170),
-                                borderRadius: BorderRadius.circular(100),
-                              ),
-                              child: const Icon(
-                                Icons.chevron_right,
-                                color: Colors.white,
-                              ),
-                            ),
-                            onPressed: () {},
-                          ),
                           leading: const GFAvatar(
                             backgroundColor: Colors.grey,
                           ),
@@ -217,14 +198,11 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.only(
-          right: 20.0,
-          bottom: 10,
-        ),
+        padding: const EdgeInsets.all(18.0),
         child: FloatingActionButton(
           onPressed: () {},
           backgroundColor: const Color.fromARGB(230, 34, 164, 92),
-          child: const Icon(Icons.call),
+          child: const Icon(Icons.add),
         ),
       ),
     );
