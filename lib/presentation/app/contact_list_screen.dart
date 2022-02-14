@@ -1,3 +1,4 @@
+import 'package:contact/presentation/app/add_contact.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 
@@ -200,7 +201,9 @@ class _ContactListState extends State<ContactList> {
       floatingActionButton: Padding(
         padding: const EdgeInsets.all(18.0),
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context).push(AddContactScreen.route());
+          },
           backgroundColor: const Color.fromARGB(230, 34, 164, 92),
           child: const Icon(Icons.add),
         ),
